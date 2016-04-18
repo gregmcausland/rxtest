@@ -14,6 +14,7 @@
   "license": "ISC",
   "jspm": {
     "dependencies": {
+      "contentful": "npm:contentful@^3.3.5",
       "immutable": "npm:immutable@^3.7.6",
       "rxjs": "npm:rxjs@^5.0.0-beta.4"
     },

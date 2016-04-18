@@ -2,15 +2,23 @@
     <head>
         <meta charset="utf-8">
         <title>Immutable Rx</title>
+        <style>
+            input {
+                outline: none;
+            }
+            .is-complete span {
+                text-decoration: line-through;
+                color: #ddd;
+            }
+        </style>
     </head>
     <body>
+        <div id="app"></div>
+        <audio src="sounds.mp3" id="test">
 
-        <div>
-            <button id="add">Add</button>
-            <button id="sub">Subtract</button>
-        </div>
-
-        <div id="output"></div>
+        <script src="https://npmcdn.com/contentful@latest/browser-dist/contentful.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.lite.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.0/immutable.min.js"></script>
 
         <script src="jspm_packages/system.js"></script>
         <script src="config.js"></script>
