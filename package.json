@@ -16,7 +16,8 @@
     "dependencies": {
       "contentful": "npm:contentful@^3.3.5",
       "immutable": "npm:immutable@^3.7.6",
-      "rxjs": "npm:rxjs@^5.0.0-beta.4"
+      "rxjs": "npm:rxjs@^5.0.0-beta.4",
+      "virtual-dom": "npm:virtual-dom@^2.1.1"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

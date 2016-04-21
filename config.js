@@ -20,6 +20,7 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "immutable": "npm:immutable@3.7.6",
     "rxjs": "npm:rxjs@5.0.0-beta.4",
+    "virtual-dom": "npm:virtual-dom@2.1.1",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -279,6 +280,15 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
+    "npm:error@4.4.0": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "camelize": "npm:camelize@1.0.0",
+      "string-template": "npm:string-template@0.2.1",
+      "xtend": "npm:xtend@4.0.1"
+    },
+    "npm:ev-store@7.0.0": {
+      "individual": "npm:individual@3.0.0"
+    },
     "npm:evp_bytestokey@1.0.0": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "create-hash": "npm:create-hash@1.1.2",
@@ -299,6 +309,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "stream-consume": "npm:stream-consume@0.1.0",
       "url": "github:jspm/nodelibs-url@0.1.0"
+    },
+    "npm:global@4.3.0": {
+      "process": "npm:process@0.5.2"
     },
     "npm:hash.js@1.0.3": {
       "inherits": "npm:inherits@2.0.1"
@@ -322,6 +335,9 @@ System.config({
     "npm:miller-rabin@4.0.0": {
       "bn.js": "npm:bn.js@4.11.3",
       "brorand": "npm:brorand@1.0.5"
+    },
+    "npm:next-tick@0.2.2": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"
@@ -459,6 +475,16 @@ System.config({
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:virtual-dom@2.1.1": {
+      "browser-split": "npm:browser-split@0.0.1",
+      "error": "npm:error@4.4.0",
+      "ev-store": "npm:ev-store@7.0.0",
+      "global": "npm:global@4.3.0",
+      "is-object": "npm:is-object@1.0.1",
+      "next-tick": "npm:next-tick@0.2.2",
+      "x-is-array": "npm:x-is-array@0.1.0",
+      "x-is-string": "npm:x-is-string@0.1.0"
     },
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"

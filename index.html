@@ -3,10 +3,7 @@
         <meta charset="utf-8">
         <title>Immutable Rx</title>
         <style>
-            input {
-                outline: none;
-            }
-            .is-complete span {
+            .is-playing {
                 text-decoration: line-through;
                 color: #ddd;
             }
@@ -14,11 +11,8 @@
     </head>
     <body>
         <div id="app">
-
             <div id="playlist"></div>
-
             <audio id="player" controls>
-
         </div>
 
         <script src="https://npmcdn.com/contentful@latest/browser-dist/contentful.min.js"></script>
@@ -28,7 +22,7 @@
         <script src="jspm_packages/system.js"></script>
         <script src="config.js"></script>
         <script>
-          System.import('source/index.js');
+            System.import('source/index.js');
         </script>
     </body>
 </html>
