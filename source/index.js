@@ -26,19 +26,32 @@ function renderPlayList({ tracks, playing }) {
 }
 
 function getNewState(state, action) {
+  console.log(action)
   switch (action.type) {
     case 'PLAY':
-      const player = document.querySelector('#player');
-      player.src = action.url;
-      player.play();
       state.playing = action.id;
       return state;
 
-    case 'PLAYBACK_ENDED':
+    case 'PLAYBACK_ENDED', 'PLAYBACK_PAUSED' :
       state.playing = undefined;
       return state;
   }
   return state;
+}
+
+function sideEffects(action) {
+  const player = document.querySelector('#player');
+  switch (action.type) {
+    case 'PLAY':
+      player.src = action.url;
+      player.play();
+      break;
+  }
+}
+
+function getNewStateAndSideEffects(state, action) {
+  sideEffects(action);
+  return getNewState(state, action);
 }
 
 function buildActionStreams({ playlist, player }) {
@@ -46,6 +59,9 @@ function buildActionStreams({ playlist, player }) {
 
   const playerEnded = Rx.Observable.fromEvent(player, 'ended')
     .map(evt => ({ type: 'PLAYBACK_ENDED' }));
+
+  const playerPaused = Rx.Observable.fromEvent(player, 'pause')
+    .map(evt => ({ type: 'PLAYBACK_PAUSED' }));
 
   const playActions = playlistClicks
     .filter(evt => evt.target.hasAttribute('data-track-url'))
@@ -55,7 +71,7 @@ function buildActionStreams({ playlist, player }) {
       id: evt.target.getAttribute('data-track-id')
     }));
 
-  return Rx.Observable.merge(playActions, playerEnded);
+  return Rx.Observable.merge(playActions, playerEnded, playerPaused);
 }
 
 function startPlayer(tracks) {
@@ -74,7 +90,7 @@ function startPlayer(tracks) {
     .appendChild(DOM);
 
   buildActionStreams({ playlist, player })
-    .scan(getNewState, initialState)
+    .scan(getNewStateAndSideEffects, initialState)
     .subscribe(state => {
       const newDOMTree = renderPlayList(state);
       const patches = diff(DOM, newDOMTree);
